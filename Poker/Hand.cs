@@ -12,6 +12,7 @@ namespace Poker
 {
     public class Hand
     {
+        // Purpose of Hand class is to pull valid hands from the deck. 
         public List<Card> newHand;
 
 
@@ -45,8 +46,10 @@ namespace Poker
             string possibleSuits = "CDHS";
             char newSuit = GetRandomCharacter(possibleSuits, random);
 
-            string possibleRanks = "23456789JQKA";
-            char newRank = GetRandomCharacter(possibleRanks, random);
+            var possibleRanks = new List<string>{"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+            int index = random.Next(possibleRanks.Count);
+            var newRank = possibleRanks[index];
+            
 
             newCard.Suit = newSuit;
             newCard.Rank = newRank;

@@ -15,19 +15,15 @@ namespace Poker
 
             List<Card> player1Hand = handsInPlay.GetNewHand();
             List<Card> player2Hand = handsInPlay.GetNewHand();
-
-            
-
-
-
+            //Play a new game enter
             //Compare hands
+            //Console.Write(); each hand 
+            //Winnder and why.
 
+            Scoring.ShowHands(player1Hand, player2Hand);
         }
 
-        public bool Player1HandWins(List<Card> hand1, List<Card> hand2)
-        {
-            If
-        }
+        
 
     }
 

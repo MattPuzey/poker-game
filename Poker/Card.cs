@@ -9,7 +9,7 @@ namespace Poker
 {
     public class Card
     {
-        public char Rank { get; set; }
+        public string Rank { get; set; }
         public char Suit { get; set; }
     }
 }
