@@ -20,7 +20,8 @@ namespace Poker
             //Console.Write(); each hand 
             //Winnder and why.
 
-            Scoring.ShowHands(player1Hand, player2Hand);
+            ScoringSession newSession = new ScoringSession();
+            newSession.ShowHands(player1Hand, player2Hand);
         }
 
         

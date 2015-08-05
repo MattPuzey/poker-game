@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Poker
 {
-    class Scoring
+    class ScoringSession
     {
         //Ordered dict necessary for foreach iterations?
         private Dictionary<int, string> rankMapping = new Dictionary<int, string>()
@@ -39,22 +39,25 @@ namespace Poker
 
         private int FindHighcard(List<Card> cardsinHand)
         {
+            int highCardVal = 2; 
             // for each value in rankMapping values, is the value in the hand?
             //exit when it is, exit and make note of exiting value.
             foreach (KeyValuePair<int, string> rankKeyValuePair in rankMapping)
             {
+                
                 var matches = cardsinHand.Where(p => p.Rank == rankKeyValuePair.Value);
                 
                 if (matches != null)
                 {
-                    int highCardVal = rankKeyValuePair.Key;
+                    highCardVal = rankKeyValuePair.Key;
                     break;
                 }
             }
 
             return highCardVal;
         }
-        
+
+
     }
 
 }
