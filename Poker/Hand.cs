@@ -26,11 +26,12 @@ namespace Poker
                 Card drawnCard = DrawCardFromDeck();
                 if (CurrentCardIsDuplicate(drawnCard))
                 {
-                    Deck.CardsAlreadyDrawn.Add(drawnCard);
-                    newHand.Add(drawnCard);
+                    drawnCard = null;
                 }
+                Deck.CardsAlreadyDrawn.Add(drawnCard);
+                --Deck.CurrentDeckSize;
+                newHand.Add(drawnCard);
             }
-            // why does the compiler think that a Hand is not a 
             return newHand;
         }
 
@@ -62,7 +63,7 @@ namespace Poker
 
         public bool CurrentCardIsDuplicate(Card thisCard)
         {
-            bool alreadyExists = cards.Any(x => x.Foo == "ooo" && x.Bar == "bat");
+            bool alreadyExists = Deck.CardsAlreadyDrawn.Contains(thisCard);
             if (alreadyExists)
             {
                 return true;

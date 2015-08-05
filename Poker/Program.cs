@@ -10,13 +10,23 @@ namespace Poker
     {
         static void Main(string[] args)
         {
-            List<Card> CardsSoFar = new List<Card>();
+            Deck pokerDeck = new Deck();
+            Hand handsInPlay = new Hand();
 
-            Hand _player1hand = new Hand();
-            Hand _player2hand = new Hand();
+            List<Card> player1Hand = handsInPlay.GetNewHand();
+            List<Card> player2Hand = handsInPlay.GetNewHand();
+
+            
+
+
 
             //Compare hands
 
+        }
+
+        public bool Player1HandWins(List<Card> hand1, List<Card> hand2)
+        {
+            If
         }
 
     }
