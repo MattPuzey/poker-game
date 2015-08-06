@@ -1,5 +1,5 @@
 # poker-game
-My first attempt at the C# poker kata...
+My first attempt at the C# poker kata, so certainly turned out to be a long winded approach. My code also trys to generate hands randomly instead of accepting inputs. 
 
 Rules:
 
