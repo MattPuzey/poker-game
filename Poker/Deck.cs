@@ -16,19 +16,29 @@ namespace Poker
         public const int FullDeckSize = 52;
         public static int CurrentDeckSize = FullDeckSize;
 
-        /* Count the number of cards drawn.
-        static int counter = 0;
-
-        public Card()
+        public List<Card> GetNewHand()
         {
-            Interlocked.Increment(ref counter);
-        }
+            //Keep drawing a new card from the deck until the drawn card has not
+            //been drawn is drawn already. If it has not been drawn add it to 
+            //the 'cards' list of cards already drawn and then add to this hand.
 
-        public ~Card()
-        {
-            Interlocked.Decrement(ref counter);
+            HandConstructor newHand = new HandConstructor();
+            List<Card> cardsInHand = newHand.Hand;
+            //why is Count not acting on my 
+            while (cardsInHand != null && cardsInHand.Count <= 5)
+            {
+
+                Card drawnCard = newHand.DrawCardFromDeck();
+                if (newHand.CurrentCardIsDuplicate(drawnCard))
+                {
+                    drawnCard = null;
+                }
+                CardsAlreadyDrawn.Add(drawnCard);
+                --CurrentDeckSize;
+                cardsInHand.Add(drawnCard);
+            }
+            return cardsInHand;
         }
-        */
 
 
     }

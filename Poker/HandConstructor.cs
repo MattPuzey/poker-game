@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -10,34 +11,13 @@ using System.Threading.Tasks;
 
 namespace Poker
 {
-    public class Hand
+    public class HandConstructor
     {
         // Purpose of Hand class is to pull valid hands from the deck. 
-        public List<Card> newHand;
 
+        public List<Card> Hand;
 
-        public List<Card> GetNewHand()
-        {
-            //Keep drawing a new card from the deck until the drawn card has not
-            //been drawn is drawn already. If it has not been drawn add it to 
-            //the 'cards' list of cards already drawn and then add to this hand.
-            while (newHand.Count <= 5)
-            {
-                
-                Card drawnCard = DrawCardFromDeck();
-                if (CurrentCardIsDuplicate(drawnCard))
-                {
-                    drawnCard = null;
-                }
-                Deck.CardsAlreadyDrawn.Add(drawnCard);
-                --Deck.CurrentDeckSize;
-                newHand.Add(drawnCard);
-            }
-            return newHand;
-        }
-
-
-        private Card DrawCardFromDeck()
+        public Card DrawCardFromDeck()
         {
             //Return a card of card random suit and rank
             Card newCard = new Card();

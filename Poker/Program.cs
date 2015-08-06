@@ -10,21 +10,16 @@ namespace Poker
     {
 
         // Scoring code is bloated  but is composed of resuable methods, 
-        //for example if you were to expand the game to work for more than two players.
-        //Not a proper TDD approach to the kata.
+        // for example if you were to expand the game to work for more than two players.
+        // Not a proper TDD approach to the kata.
         static void Main(string[] args)
         {
-            Deck pokerDeck = new Deck();
-            Hand handsInPlay = new Hand();
-
-            List<Card> player1Hand = handsInPlay.GetNewHand();
-            List<Card> player2Hand = handsInPlay.GetNewHand();
-            //Play a new game enter
-            //Compare hands
-            //Console.Write(); each hand 
-            //Winnder and why.
-
+            Deck gameDeck = new Deck();
             ScoringSession newSession = new ScoringSession();
+            List<Card> player1Hand = gameDeck.GetNewHand();
+            List<Card> player2Hand = gameDeck.GetNewHand();
+
+            
             newSession.ShowHands(player1Hand, player2Hand);
 
 
