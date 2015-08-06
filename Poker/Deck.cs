@@ -24,7 +24,7 @@ namespace Poker
 
             HandConstructor newHand = new HandConstructor();
             List<Card> cardsInHand = newHand.Hand;
-            //why is Count not acting on my 
+            
             while (cardsInHand != null && cardsInHand.Count <= 5)
             {
 

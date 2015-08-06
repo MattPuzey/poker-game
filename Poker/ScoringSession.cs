@@ -37,12 +37,13 @@ namespace Poker
             var player2Hand = determineHand(hand2);
             
             Console.Write("Player 1 hand is: ");
+            // These prints need formatting properly.  
             foreach (Card card in hand1)
             {
                 foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(card))
                 {
-                    string name = descriptor.Name;
-                    object value = descriptor.GetValue(card);
+                    var name = descriptor.Name;
+                    var value = descriptor.GetValue(card);
                     Console.WriteLine("{0}={1}", name, value);
                 }
             }
@@ -51,8 +52,8 @@ namespace Poker
             {
                 foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(card))
                 {
-                    string name = descriptor.Name;
-                    object value = descriptor.GetValue(card);
+                    var name = descriptor.Name;
+                    var value = descriptor.GetValue(card);
                     Console.WriteLine("{0}={1}", name, value);
                 }
             }
@@ -72,13 +73,23 @@ namespace Poker
         }
 
         private int determineHand(List<Card> playerHand)
-
         {
-            if (StraightFlushCheck(playerHand))
+            if (playerHand != null && PokerHands.StraightFlushCheck(playerHand))
                 return 1;
-            if (FourOfaKindCheck(playerHand))
+            if (PokerHands.FourOfaKindCheck(playerHand))
                 return 2;
-             
+            if (PokerHands.FullHouseCheck(playerHand))
+                return 3;
+            if (PokerHands.FlushCheck(playerHand))
+                return 4;
+            if (PokerHands.StraightCheck(playerHand))
+                return 5;
+            if (PokerHands.ThreeOfaKind(playerHand))
+                return 6;
+            if (PokerHands.TwoPairCheck(playerHand))
+                return 7;
+            if (PokerHands.PairCheck(playerHand))
+                return 8;
             return 9;
         }
 
@@ -104,26 +115,7 @@ namespace Poker
             return highCardVal;
         }
 
-        private bool StraightFlushCheck(List<Card> cardsinHand)
-        {
-            // Are all cards in hand of the same Rank?
-            var firstCard = cardsinHand.First();
-            if (cardsinHand.All(s => s.Rank == firstCard.Rank))
-                return true;
-            return false;
-        }
-
-        private bool FourOfaKindCheck(List<Card> cardsinHand)
-        {
-
-            return false;
-        }
-
-        private bool TwoPairCheck(List<Card> cardsInHand)
-        {
-            return false;
-        }
-
+   
     }
 
 }

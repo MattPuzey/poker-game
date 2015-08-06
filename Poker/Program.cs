@@ -16,6 +16,7 @@ namespace Poker
         {
             Deck gameDeck = new Deck();
             ScoringSession newSession = new ScoringSession();
+
             List<Card> player1Hand = gameDeck.GetNewHand();
             List<Card> player2Hand = gameDeck.GetNewHand();
 
