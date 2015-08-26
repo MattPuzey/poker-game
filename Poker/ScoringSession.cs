@@ -16,6 +16,7 @@ namespace Poker
         {
             {1, "A"},{2, "K"},{3, "Q"},{4, "J"},{5, "10"},{6, "11"},{7, "9"},{8, "8"},
             {9, "7"}, {10, "6"}, {11, "5"}, {12, "4"}, {13, "3"}, {14, "2"}
+            //An enumerated type should be used for this instead.
         };
 
         private Dictionary<int, string> pokerHandsMapping = new Dictionary<int, string>()
@@ -23,7 +24,7 @@ namespace Poker
             {1, "Straight flush"}, {2, "Four of a kind"}, {3, "Full House"}, 
             {4, "Flush"}, {5, "Straight"}, {6, "Three of A Kind"}, {7, "Two Pairs"},
             {8, "Pair"}, {9, "High Card"}
-            // else high cards are picked
+            // An enumerated type should be used for this instead.
         };
 
    
